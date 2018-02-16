@@ -109,11 +109,11 @@ $(function(){
       , i
 
     // Add all labels
-    for (i in data.labels) {
-      label = data.labels[i]
+    // for (i in data.labels) {
+    //   label = data.labels[i]
 
-      processedData[label.name] = {key: label.name, values: [], time: Object.create(datesMilisecondsRange), color: '#' + label.color}
-    }
+    //   processedData[label.name] = {key: label.name, values: [], time: Object.create(datesMilisecondsRange), color: '#' + label.color}
+    // }
 
     // Add no label
     processedData[NO_LABEL_TITLE] = {key: NO_LABEL_TITLE, values: [], time: Object.create(datesMilisecondsRange), color: '#' + NO_LABEL_COLOR}
@@ -137,13 +137,13 @@ $(function(){
       issue = data.issues[i]
 
       // If issue has no labels than assign 'no label' label
-      if (issue.labels.length === 0) {
+      // if (issue.labels.length === 0) {
         issue.labels.push(NO_LABEL_TITLE)
-      }
+      // }
 
       // For each label
-      for (l in issue.labels) {
-        label = issue.labels[l]
+      // for (l in issue.labels) {
+        // label = issue.labels[l]
 
         // For each open range
         for (o in issue.open) {
@@ -154,11 +154,11 @@ $(function(){
 
           // Fill label time-value object
           while(from <= to) {
-            processedData[label].time[from] += 1
+            processedData[NO_LABEL_TITLE].time[from] += 1
             from += 86400 * 1000 // 3600 * 24 * 1000
           }
         }
-      }
+      // }
     }
 
     var p
